@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 const milestones = [
     {
-        year: "2011",
+        year: "2008",
         step: "01 / 10",
         statNum: "01",
         statLabel: "Founding mandate",
@@ -13,7 +13,52 @@ const milestones = [
         category: "Foundation",
     },
     {
+        year: "2009",
+        step: "02 / 10",
+        statNum: "12",
+        statLabel: "Kitchens planned",
+        title: "Kitchen planning becomes a discipline",
+        desc: "A dedicated kitchen design practice is formed after repeated evidence that layout, not staffing, was capping throughput across client sites.",
+        category: "Infrastructure",
+    },
+    {
+        year: "2010",
+        step: "02 / 10",
+        statNum: "12",
+        statLabel: "Kitchens planned",
+        title: "Kitchen planning becomes a discipline",
+        desc: "A dedicated kitchen design practice is formed after repeated evidence that layout, not staffing, was capping throughput across client sites.",
+        category: "Infrastructure",
+    },
+    {
+        year: "2011",
+        step: "02 / 10",
+        statNum: "12",
+        statLabel: "Kitchens planned",
+        title: "Kitchen planning becomes a discipline",
+        desc: "A dedicated kitchen design practice is formed after repeated evidence that layout, not staffing, was capping throughput across client sites.",
+        category: "Infrastructure",
+    },
+    {
+        year: "2012",
+        step: "02 / 10",
+        statNum: "12",
+        statLabel: "Kitchens planned",
+        title: "Kitchen planning becomes a discipline",
+        desc: "A dedicated kitchen design practice is formed after repeated evidence that layout, not staffing, was capping throughput across client sites.",
+        category: "Infrastructure",
+    },
+    {
         year: "2013",
+        step: "02 / 10",
+        statNum: "12",
+        statLabel: "Kitchens planned",
+        title: "Kitchen planning becomes a discipline",
+        desc: "A dedicated kitchen design practice is formed after repeated evidence that layout, not staffing, was capping throughput across client sites.",
+        category: "Infrastructure",
+    },
+    {
+        year: "2014",
         step: "02 / 10",
         statNum: "12",
         statLabel: "Kitchens planned",
@@ -196,11 +241,11 @@ export default function Trajectory() {
 
                             <h2
                                 id="trajectory-heading"
-                                className="text-[28px] sm:text-[36px] md:text-[44px] font-medium leading-[1.08] tracking-[-1.6px] sm:tracking-[-2.2px] md:flex md:gap-2 text-[#171717]"
+                                className="text-[28px] sm:text-[36px] md:text-[44px] font-medium leading-[1.08] tracking-[-1.6px] sm:tracking-[-2.2px] flex flex-wrap items-baseline gap-x-2.5 gap-y-1 text-[#171717]"
                             >
-                                <span>Fifteen years</span>
+                                <span>Eighteen years</span>{" "}
                                 <em className="font-serif italic font-normal text-[#bd4b25]">
-                                    <span>of exprerience.</span>
+                                    <span>of experience.</span>
                                 </em>
                             </h2>
                         </div>
