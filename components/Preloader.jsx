@@ -145,18 +145,18 @@ export default function Preloader() {
           ref={centerLogoRef}
           style={flyStyle}
           className={`relative z-20 transition-all duration-700 ease-out ${!isFlying
-              ? logoEntered
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-110"
-              : ""
+            ? logoEntered
+              ? "opacity-100 scale-100"
+              : "opacity-0 scale-110"
+            : ""
             }`}
         >
           {/* Logo Card */}
           <div className="relative overflow-hidden">
             <img
-              src="/restavision-logo-circle.webp"
+              src="/preloader-logo-circle.webp"
               alt="Restavision"
-              className="h-14 sm:h-18 md:h-40 invert w-auto object-contain block"
+              className="h-14 sm:h-18 md:h-40 w-auto object-contain block"
             />
 
             {/* Shimmer Light Beam Sweep */}
@@ -170,8 +170,8 @@ export default function Preloader() {
         {/* Tagline Unit Flanked by Expanding Terracotta Accent Lines */}
         <div
           className={`mt-8 sm:mt-10 flex items-center gap-3.5 transition-all duration-500 ${detailsFaded || isFlying
-              ? "opacity-0 translate-y-3 pointer-events-none"
-              : "opacity-100 translate-y-0"
+            ? "opacity-0 translate-y-3 pointer-events-none"
+            : "opacity-100 translate-y-0"
             }`}
         >
           <span
@@ -181,8 +181,8 @@ export default function Preloader() {
           <div className="overflow-hidden py-1">
             <span
               className={`block text-[10px] sm:text-[11px] md:text-[12px] font-bold tracking-[2px] uppercase text-white/90 transition-all duration-500 ${taglineVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-5 opacity-0"
+                ? "translate-y-0 opacity-100"
+                : "translate-y-5 opacity-0"
                 }`}
             >
               Building Better Hospitality Businesses
@@ -198,8 +198,8 @@ export default function Preloader() {
       {/* Bottom-Right 000% -> 100% Counter */}
       <div
         className={`absolute right-6 sm:right-10 md:right-14 bottom-6 sm:bottom-8 flex items-baseline gap-1 font-sans transition-all duration-500 ${detailsFaded || isFlying
-            ? "opacity-0 translate-y-3 pointer-events-none"
-            : "opacity-100 translate-y-0"
+          ? "opacity-0 translate-y-3 pointer-events-none"
+          : "opacity-100 translate-y-0"
           }`}
       >
         <span className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white tabular-nums">
