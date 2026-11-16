@@ -26,7 +26,7 @@ const slides = [
   },
 ];
 
-const rotatingWords = ["Restaurant", "Franchisees", "Franchisors"];
+const rotatingWords = ["Restaurant", "Franchisees ", "Franchisors "];
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -155,7 +155,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-[17px] md:text-[18px] leading-[1.65] text-[#626262] max-w-[460px] mb-7 md:mb-8">
-            Building better food businesses. From your first idea to your next
+            Building better Hospitality businesses. From your first idea to your next
             outlet, we help restaurants, cafés, QSRs and cloud kitchens launch well, run smarter and grow with confidence.
           </p>
 
