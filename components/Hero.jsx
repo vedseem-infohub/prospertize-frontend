@@ -129,7 +129,7 @@ export default function Hero() {
             id="hero-title"
             className="text-[33px] sm:text-[52px] md:text-[60px] lg:text-[60px] font-medium leading-[1.05] tracking-[-2.4px] sm:tracking-[-3px] lg:tracking-[-3.6px] text-[#171717] mb-5 md:mb-7"
           >
-            <span className="inline-grid w-[270px] pr-4 grid-cols-1 grid-rows-1 align-top animate-slide-in-up">
+            <span className="inline-grid w-[280px] pr-4 grid-cols-1 grid-rows-1 align-top animate-slide-in-up">
               {isTransitioning && prevWordIndex !== null && (
                 <span
                   key={`prev-${prevWordIndex}`}
