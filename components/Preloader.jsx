@@ -158,11 +158,11 @@ export default function Preloader() {
           }`}
         >
           {/* Logo Card */}
-          <div className="relative overflow-hidden bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 md:p-10 shadow-[0_30px_90px_-20px_rgba(189,75,37,0.4)] backdrop-blur-md">
+          <div className="relative overflow-hidden">
             <img
               src="/restavision-logo-circle.webp"
               alt="Restavision"
-              className="h-14 sm:h-18 md:h-22 invert w-auto object-contain block"
+              className="h-14 sm:h-18 md:h-40 invert w-auto object-contain block"
             />
 
             {/* Shimmer Light Beam Sweep */}
