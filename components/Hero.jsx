@@ -26,11 +26,44 @@ const slides = [
   },
 ];
 
+const rotatingWords = ["Restaurant", "Franchisees", "Franchisors"];
+
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [hasInteracted, setHasInteracted] = useState(false);
   const touchStartX = useRef(0);
   const timerRef = useRef(null);
+
+  // Rotating words animation state ("Restaurant", "Franchisees", "Franchisors")
+  const [wordIndex, setWordIndex] = useState(0);
+  const [prevWordIndex, setPrevWordIndex] = useState(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const transitionTimerRef = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((current) => {
+        setPrevWordIndex(current);
+        return (current + 1) % rotatingWords.length;
+      });
+      setIsTransitioning(true);
+
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+      }
+      transitionTimerRef.current = setTimeout(() => {
+        setIsTransitioning(false);
+        setPrevWordIndex(null);
+      }, 550);
+    }, 2800);
+
+    return () => {
+      clearInterval(interval);
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+      }
+    };
+  }, []);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -96,7 +129,25 @@ export default function Hero() {
             id="hero-title"
             className="text-[33px] sm:text-[52px] md:text-[60px] lg:text-[60px] font-medium leading-[1.05] tracking-[-2.4px] sm:tracking-[-3px] lg:tracking-[-3.6px] text-[#171717] mb-5 md:mb-7"
           >
-            Restaurant consulting
+            <span className="inline-grid w-[270px] pr-4 grid-cols-1 grid-rows-1 align-top animate-slide-in-up">
+              {isTransitioning && prevWordIndex !== null && (
+                <span
+                  key={`prev-${prevWordIndex}`}
+                  aria-hidden="true"
+                  className="col-start-1 row-start-1 text-[#d58c1e] animate-slide-out-up pointer-events-none select-none whitespace-nowrap"
+                >
+                  {rotatingWords[prevWordIndex]}
+                </span>
+              )}
+              <span
+                key={`curr-${wordIndex}`}
+                className={`col-start-1 row-start-1 text-[#d58c1e] whitespace-nowrap ${isTransitioning ? "animate-slide-in-up" : ""
+                  }`}
+              >
+                {rotatingWords[wordIndex]}
+              </span>
+            </span>{" "}
+            consulting
             <br />
             <em className="font-serif italic font-normal text-[#bd4b25]">
               for better business.
@@ -112,7 +163,7 @@ export default function Hero() {
             {/* CTA Pair */}
             <div className="flex items-stretch gap-3">
               <a
-                href="https://calendar.app.google/6CYe7jkU9xueMhve9"
+                href="https://calendly.com/vedseem-contact/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-between gap-5 px-[21px] py-[15px] text-[14px] font-semibold bg-[#171717] text-white hover:bg-[#bd4b25] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"

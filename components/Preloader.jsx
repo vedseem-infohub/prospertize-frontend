@@ -101,30 +101,26 @@ export default function Preloader() {
   return (
     <div
       id="intro-curtain"
-      className={`fixed inset-0 z-[10000] overflow-hidden select-none transition-opacity duration-300 ${
-        isFlying ? "pointer-events-none" : "pointer-events-auto"
-      }`}
+      className={`fixed inset-0 z-[10000] overflow-hidden select-none transition-opacity duration-300 ${isFlying ? "pointer-events-none" : "pointer-events-auto"
+        }`}
       aria-hidden="true"
     >
       {/* Top Half Shutter Curtain */}
       <div
-        className={`absolute inset-x-0 top-0 h-1/2 bg-[#171717] transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] ${
-          isFlying ? "-translate-y-full" : "translate-y-0"
-        }`}
+        className={`absolute inset-x-0 top-0 h-1/2 bg-[#171717] transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] ${isFlying ? "-translate-y-full" : "translate-y-0"
+          }`}
       />
 
       {/* Bottom Half Shutter Curtain */}
       <div
-        className={`absolute inset-x-0 bottom-0 h-1/2 bg-[#171717] transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] ${
-          isFlying ? "translate-y-full" : "translate-y-0"
-        }`}
+        className={`absolute inset-x-0 bottom-0 h-1/2 bg-[#171717] transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] ${isFlying ? "translate-y-full" : "translate-y-0"
+          }`}
       />
 
       {/* Subtle Geometric Overlay Grid Pattern */}
       <div
-        className={`pointer-events-none absolute inset-0 opacity-15 transition-opacity duration-500 ${
-          isFlying ? "opacity-0" : "opacity-15"
-        }`}
+        className={`pointer-events-none absolute inset-0 opacity-15 transition-opacity duration-500 ${isFlying ? "opacity-0" : "opacity-15"
+          }`}
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)",
@@ -134,9 +130,8 @@ export default function Preloader() {
 
       {/* Center Terracotta Radial Ambient Light */}
       <div
-        className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ${
-          isFlying ? "opacity-0" : "opacity-100"
-        }`}
+        className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ${isFlying ? "opacity-0" : "opacity-100"
+          }`}
         style={{
           background:
             "radial-gradient(52% 42% at 50% 48%, rgba(189, 75, 37, 0.22), transparent 72%)",
@@ -149,13 +144,12 @@ export default function Preloader() {
         <div
           ref={centerLogoRef}
           style={flyStyle}
-          className={`relative z-20 transition-all duration-700 ease-out ${
-            !isFlying
+          className={`relative z-20 transition-all duration-700 ease-out ${!isFlying
               ? logoEntered
                 ? "opacity-100 scale-100"
                 : "opacity-0 scale-110"
               : ""
-          }`}
+            }`}
         >
           {/* Logo Card */}
           <div className="relative overflow-hidden">
@@ -167,52 +161,46 @@ export default function Preloader() {
 
             {/* Shimmer Light Beam Sweep */}
             <div
-              className={`pointer-events-none absolute inset-y-[-40%] w-2/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent transition-all duration-1000 ease-in-out ${
-                shimmer ? "left-[160%]" : "-left-[100%]"
-              }`}
+              className={`pointer-events-none absolute inset-y-[-40%] w-2/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent transition-all duration-1000 ease-in-out ${shimmer ? "left-[160%]" : "-left-[100%]"
+                }`}
             />
           </div>
         </div>
 
         {/* Tagline Unit Flanked by Expanding Terracotta Accent Lines */}
         <div
-          className={`mt-8 sm:mt-10 flex items-center gap-3.5 transition-all duration-500 ${
-            detailsFaded || isFlying
+          className={`mt-8 sm:mt-10 flex items-center gap-3.5 transition-all duration-500 ${detailsFaded || isFlying
               ? "opacity-0 translate-y-3 pointer-events-none"
               : "opacity-100 translate-y-0"
-          }`}
+            }`}
         >
           <span
-            className={`h-[1.5px] w-6 sm:w-12 bg-[#bd4b25] transition-transform duration-500 origin-right ${
-              taglineVisible ? "scale-x-100" : "scale-x-0"
-            }`}
+            className={`h-[1.5px] w-6 sm:w-12 bg-[#bd4b25] transition-transform duration-500 origin-right ${taglineVisible ? "scale-x-100" : "scale-x-0"
+              }`}
           />
           <div className="overflow-hidden py-1">
             <span
-              className={`block text-[10px] sm:text-[11px] md:text-[12px] font-bold tracking-[2px] uppercase text-white/90 transition-all duration-500 ${
-                taglineVisible
+              className={`block text-[10px] sm:text-[11px] md:text-[12px] font-bold tracking-[2px] uppercase text-white/90 transition-all duration-500 ${taglineVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-5 opacity-0"
-              }`}
+                }`}
             >
-              Building Better Food Businesses
+              Building Better Hospitality Businesses
             </span>
           </div>
           <span
-            className={`h-[1.5px] w-6 sm:w-12 bg-[#bd4b25] transition-transform duration-500 origin-left ${
-              taglineVisible ? "scale-x-100" : "scale-x-0"
-            }`}
+            className={`h-[1.5px] w-6 sm:w-12 bg-[#bd4b25] transition-transform duration-500 origin-left ${taglineVisible ? "scale-x-100" : "scale-x-0"
+              }`}
           />
         </div>
       </div>
 
       {/* Bottom-Right 000% -> 100% Counter */}
       <div
-        className={`absolute right-6 sm:right-10 md:right-14 bottom-6 sm:bottom-8 flex items-baseline gap-1 font-sans transition-all duration-500 ${
-          detailsFaded || isFlying
+        className={`absolute right-6 sm:right-10 md:right-14 bottom-6 sm:bottom-8 flex items-baseline gap-1 font-sans transition-all duration-500 ${detailsFaded || isFlying
             ? "opacity-0 translate-y-3 pointer-events-none"
             : "opacity-100 translate-y-0"
-        }`}
+          }`}
       >
         <span className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white tabular-nums">
           {String(progress).padStart(3, "0")}
