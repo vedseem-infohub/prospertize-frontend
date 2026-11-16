@@ -162,7 +162,7 @@ export default function Preloader() {
             <img
               src="/restavision-logo-circle.webp"
               alt="Restavision"
-              className="h-14 sm:h-18 md:h-22 w-auto object-contain block"
+              className="h-14 sm:h-18 md:h-22 invert w-auto object-contain block"
             />
 
             {/* Shimmer Light Beam Sweep */}
