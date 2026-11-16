@@ -33,7 +33,7 @@ export default function Header() {
             id="nav-logo-slot"
             src="/restavision-logo-circle.webp"
             alt="Restavision"
-            className={`${isScrolled ? "h-8 md:h-30" : "h-9 md:h-30"
+            className={`${isScrolled ? "h-20 md:h-30" : "h-20 md:h-30"
               } w-[170px] object-contain transition-all duration-200`}
           />
         </Link>

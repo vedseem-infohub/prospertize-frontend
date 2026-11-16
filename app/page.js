@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import OurClients from "../components/OurClients";
+import Trajectory from "../components/Trajectory";
 import WhatsAppFloating from "../components/WhatsAppFloating";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
 
         {/* Our Clients Section (just after Hero) */}
         <OurClients />
+        <Trajectory />
       </main>
       <WhatsAppFloating />
     </div>
