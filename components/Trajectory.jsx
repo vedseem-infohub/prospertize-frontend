@@ -148,8 +148,9 @@ export default function Trajectory() {
 
     const totalCards = milestones.length + 1; // 10 milestone cards + 1 final next-decade card
 
-    // Update horizontal track position and progress on vertical scroll
+    // Update horizontal track position and progress on vertical scroll (desktop only)
     const handleScroll = useCallback(() => {
+        if (typeof window !== "undefined" && window.innerWidth < 768) return;
         if (!containerRef.current || !trackRef.current) return;
 
         const container = containerRef.current;
@@ -199,8 +200,40 @@ export default function Trajectory() {
         };
     }, [handleScroll]);
 
-    // Direct vertical jump to a specific card's progress position
+    // Track horizontal swipe on mobile to keep activeIndex updated
+    useEffect(() => {
+        const track = trackRef.current;
+        if (!track) return;
+
+        const handleTrackScroll = () => {
+            if (window.innerWidth >= 768) return;
+            const scrollLeft = track.scrollLeft;
+            const cardWidth = 300; // 280px + 20px gap
+            const idx = Math.min(
+                Math.round(scrollLeft / cardWidth),
+                totalCards - 1
+            );
+            setActiveIndex(idx);
+        };
+
+        track.addEventListener("scroll", handleTrackScroll, { passive: true });
+        return () => track.removeEventListener("scroll", handleTrackScroll);
+    }, [totalCards]);
+
+    // Jump to a specific card's position (touch-scroll on mobile, vertical scroll mapping on desktop)
     const scrollToCard = (index) => {
+        if (typeof window !== "undefined" && window.innerWidth < 768) {
+            if (trackRef.current) {
+                const cardWidth = 300;
+                trackRef.current.scrollTo({
+                    left: index * cardWidth,
+                    behavior: "smooth",
+                });
+                setActiveIndex(index);
+            }
+            return;
+        }
+
         if (!containerRef.current) return;
         const container = containerRef.current;
         const rect = container.getBoundingClientRect();
@@ -229,16 +262,15 @@ export default function Trajectory() {
         <section
             id="trajectory"
             ref={containerRef}
-            className="relative bg-[#fafaf8] border-t border-[#dededb] h-[360vh] md:h-[420vh]"
+            className="relative bg-[#fafaf8] border-t border-[#dededb] py-8 sm:py-10 md:py-0 md:h-[240vh]"
             aria-labelledby="trajectory-heading"
         >
-            {/* Sticky Viewport that pins during vertical scroll */}
-            <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col pt-6 md:py-8 lg:py-10">
+            {/* Sticky Viewport on desktop, natural compact flow on mobile */}
+            <div className="md:sticky md:top-0 md:h-screen w-full overflow-hidden flex flex-col justify-center py-0 md:py-8 lg:py-10">
                 {/* Top Header Row */}
                 <div className="max-w-[1360px] w-full mx-auto justify-between px-6 md:px-8 lg:px-12 flex">
-                    <div className="flex flex-col  gap-4 md:gap-8 pb-5 border-b border-[#dededb]">
+                    <div className="flex flex-col gap-2 md:gap-8 pb-3 md:pb-5 border-b border-[#dededb]">
                         <div>
-
                             <h2
                                 id="trajectory-heading"
                                 className="text-[28px] sm:text-[36px] md:text-[44px] font-medium leading-[1.08] tracking-[-1.6px] sm:tracking-[-2.2px] flex flex-wrap items-baseline gap-x-2.5 gap-y-1 text-[#171717]"
@@ -250,18 +282,15 @@ export default function Trajectory() {
                             </h2>
                         </div>
 
-                        <div className=" ">
+                        <div>
                             <p className="hidden lg:block text-[13px] md:text-[14px] leading-relaxed text-[#626262] max-w-[440px]">
                                 Every capability this practice offers was added because a
                                 client project demanded it. This is the order it happened in.
                             </p>
-
-                            {/* Progress Count & Arrow Controls */}
                         </div>
                     </div>
+
                     <div className="flex items-center gap-3">
-
-
                         <div className="flex items-center gap-1.5">
                             <button
                                 type="button"
@@ -286,7 +315,7 @@ export default function Trajectory() {
                 </div>
 
                 {/* Middle: Horizontal Cards Track with Central Progress Rail */}
-                <div className="relative md:mt-5 overflow-visible">
+                <div className="relative mt-6 md:mt-5 overflow-visible">
                     {/* THE PROGRESS RAIL (matching restoconsultancy.com top line animation) */}
                     <div className="pointer-events-none absolute inset-x-0 top-[6.75rem] md:top-[7.75rem] hidden md:block h-[2px] z-0">
                         {/* Base line track */}
@@ -301,8 +330,7 @@ export default function Trajectory() {
                     {/* Horizontally scrolling track of cards */}
                     <div
                         ref={trackRef}
-                        className="flex items-start gap-6 sm:gap-7 md:gap-8 pl-6 sm:pl-8 md:pl-12 pr-16 will-change-transform select-none relative z-10"
-                        style={{ transform: "translate3d(0, 0, 0)" }}
+                        className="flex items-start gap-5 sm:gap-7 md:gap-8 pl-6 sm:pl-8 md:pl-12 pr-6 md:pr-16 select-none relative z-10 overflow-x-auto md:overflow-visible scrollbar-none snap-x snap-mandatory md:will-change-transform py-2 md:py-0"
                     >
                         {milestones.map((m, idx) => {
                             const cardFraction = idx / (totalCards - 1);

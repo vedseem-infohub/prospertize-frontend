@@ -147,12 +147,12 @@ export default function EightStages() {
     <section
       id="engagement-model"
       ref={containerRef}
-      className="bg-white border-t border-[#dededb] pt-16 md:pt-24 pb-28 md:pb-36 lg:pb-40"
+      className="bg-white border-t border-[#dededb] pt-6 sm:pt-8 md:pt-12 pb-20 md:pb-32"
       aria-labelledby="stages-heading"
     >
       <div className="max-w-[1360px] mx-auto px-6 md:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12 md:mb-16">
+        <div className="max-w-3xl mb-6 md:mb-8">
           <p className="flex items-center text-[10px] md:text-[11px] font-bold tracking-[1.5px] uppercase text-[#171717] mb-3">
             <span
               className="inline-block bg-[#bd4b25] w-[20px] h-[2px] mr-2 align-middle flex-shrink-0"
@@ -267,18 +267,18 @@ export default function EightStages() {
                       {/* Milestone Node Circle on the line */}
                       <span
                         className={`relative mt-1 flex size-[27px] shrink-0 items-center justify-center rounded-full border bg-white transition-all duration-500 ${isCurrent
-                            ? "border-[#bd4b25] shadow-[0_0_20px_2px_rgba(189,75,37,0.45)] ring-4 ring-[#bd4b25]/15"
-                            : isPassed
-                              ? "border-[#bd4b25]"
-                              : "border-[#dededb] group-hover:border-[#171717]"
+                          ? "border-[#bd4b25] shadow-[0_0_20px_2px_rgba(189,75,37,0.45)] ring-4 ring-[#bd4b25]/15"
+                          : isPassed
+                            ? "border-[#bd4b25]"
+                            : "border-[#dededb] group-hover:border-[#171717]"
                           }`}
                       >
                         <span
                           className={`size-[8px] rounded-full transition-all duration-500 ${isCurrent
-                              ? "scale-100 bg-[#bd4b25]"
-                              : isPassed
-                                ? "scale-75 bg-[#bd4b25]"
-                                : "scale-0 bg-[#bd4b25]/60 group-hover:scale-75"
+                            ? "scale-100 bg-[#bd4b25]"
+                            : isPassed
+                              ? "scale-75 bg-[#bd4b25]"
+                              : "scale-0 bg-[#bd4b25]/60 group-hover:scale-75"
                             }`}
                         />
                       </span>
@@ -288,10 +288,10 @@ export default function EightStages() {
                         <span className="flex items-baseline gap-3">
                           <span
                             className={`text-[12px] font-mono font-semibold tracking-wider tabular-nums transition-colors duration-300 ${isCurrent
-                                ? "text-[#bd4b25]"
-                                : isPassed
-                                  ? "text-[#171717]"
-                                  : "text-[#8a8a86]"
+                              ? "text-[#bd4b25]"
+                              : isPassed
+                                ? "text-[#171717]"
+                                : "text-[#8a8a86]"
                               }`}
                           >
                             {stage.n}
@@ -299,8 +299,8 @@ export default function EightStages() {
 
                           <span
                             className={`text-[20px] sm:text-[24px] font-medium leading-tight transition-colors duration-300 ${isCurrent
-                                ? "text-[#171717]"
-                                : "text-[#171717]/40 group-hover:text-[#171717]/80"
+                              ? "text-[#171717]"
+                              : "text-[#171717]/40 group-hover:text-[#171717]/80"
                               }`}
                           >
                             {stage.title}
@@ -309,8 +309,8 @@ export default function EightStages() {
 
                         <span
                           className={`mt-2 block max-w-[500px] text-[13.5px] sm:text-[14px] leading-relaxed transition-all duration-500 ${isCurrent
-                              ? "text-[#626262] opacity-100 font-normal"
-                              : "text-[#8a8a86] opacity-60 group-hover:opacity-90"
+                            ? "text-[#626262] opacity-100 font-normal"
+                            : "text-[#8a8a86] opacity-60 group-hover:opacity-90"
                             }`}
                         >
                           {stage.body}
